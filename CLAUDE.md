@@ -48,7 +48,7 @@ Rate limit: 10 req/sec. The `User-Agent` header (`SECAnalyzer admin@example.com`
 
 Tests use `fastapi.testclient.TestClient` (sync) with `unittest.mock.patch` to replace the `edgar_client` singleton in each service module. Mock responses use `MagicMock` (not `AsyncMock`) for the response object itself, with `AsyncMock` only on the `.get()` method.
 
-## Testing via Browser UI
+## Testing via Browser UI (uses swagger)
 
 From the project directory:
 ```bash
@@ -67,3 +67,4 @@ Quick tests to try:
   1. GET /companies/search → set q to Apple
   2. GET /filings/latest → set company to Apple Inc. and form_type to 10-K
   3. GET /health → should return {"status": "ok"}
+
